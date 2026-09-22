@@ -1,54 +1,55 @@
-# Project-one
-First light up costume for wearable technology class.
-# LED Light Up Reading Glasses
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LED Light Up Reading Glasses</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #24292e;
+      line-height: 1.6;
+    }
+    #content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="content">Loading document...</div>
 
-## Step 1: Gather Supplies
-Gather an LED, a battery, an on/off switch, an elastic band, and heat shrink tape.
+  <script>
+    // Targets your exact document name on GitHub: Instructables (1).docx
+    const fileName = encodeURIComponent('Instructables (1).docx');
 
-![Step 1 Supplies](images/step1-supplies.jpg)
-
----
-
-## Step 2: Complete 3D Printed Design
-For the 3D printed component, use an LED holder to help with light dispersal and keeping the LED secure. This component is approximately 1 cm long, 1.5 cm wide, and 0.75 cm high. Place this holder on the end of the frames near the lens.
-
-![3D Print Design Top View](images/step2-3d-print-top.jpg)
-![3D Print Design Angle View](images/step2-3d-print-angle.jpg)
-
----
-
-## Step 3: Compiling the LED Components
-Dismantle an on/off switch to extract the copper components.
-
-![Switch Copper Components](images/step3-copper-components.jpg)
-
----
-
-## Step 4: Complete the Circuit
-Attach a battery to the copper components and attach the light to complete the circuit. Tape can be applied to secure the connections if needed.
-
-![Circuit Assembly](images/step4-circuit.jpg)
-
----
-
-## Step 5: Elastic Sleeve Construction
-Create a sleeve out of the elastic that will slide over the glasses comfortably.
-
-![Elastic Sleeve Isolated](images/step5-sleeve-alone.jpg)
-![Elastic Sleeve on Frames](images/step5-sleeve-on-glasses.jpg)
-
----
-
-## Step 6: Secure Connections
-Secure connections using heat shrink tubing.
-
-![Heat Shrink on Glasses](images/step6-heat-shrink-glasses.jpg)
-![Heat Shrink Wiring](images/step6-heat-shrink-wiring.jpg)
-
----
-
-## Step 7: Finalize
-Create two additional elastic covers: one to hold the wires in place and one to cover the tape on the battery.
-
-![Final Product Front View](images/step7-final-front.jpg)
-![Final Product Side View](images/step7-final-side.jpg)
+    fetch(fileName)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('File not found or failed to load. (HTTP ' + response.status + ')');
+        }
+        return response.arrayBuffer();
+      })
+      .then(buffer => mammoth.convertToHtml({ arrayBuffer: buffer }))
+      .then(result => {
+        document.getElementById('content').innerHTML = result.value;
+      })
+      .catch(err => {
+        document.getElementById('content').innerHTML = `
+          <div style="color: #d73a49; border: 1px solid #fdaeb7; padding: 15px; border-radius: 6px; background: #ffeef0;">
+            <h3>Unable to load document</h3>
+            <p>${err.message}</p>
+          </div>`;
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
