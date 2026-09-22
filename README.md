@@ -4,6 +4,7 @@ First light up costume for wearable technology class.
 
 ## Step 1: Gather Supplies
 Gather an LED, a battery, an on/off switch, an elastic band, and heat shrink tape.
+(may also use a simple battery case such as this one ($5) found here: https://evandesigns.com/products/small-coin-cell-holder-with-separate-switch?currency=USD&country=US&variant=39985890459696&utm_source=google&utm_medium=cpc&utm_campaign=Google%20Shopping&stkn=ca899e65d9bb&srsltid=AU7gw4WSr2sZWUCGItQtxZlCTWu3hL5NcywdXxwCOz-NJ8vaMW26SLnlDJE 
 
 ![Step 1 Supplies](images/step1-supplies.jpg)
 <img width="384" height="512" alt="unnamed" src="https://github.com/user-attachments/assets/d9422483-480b-4765-ade7-add7f076f102" />
